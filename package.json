@@ -1,0 +1,11 @@
+{
+  "name": "lanecaster",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "description": "A single-player deck-building card battler where every spell is played into one of three lanes that resolve in order.",
+  "scripts": {
+    "test": "node --test"
+  }
+}
