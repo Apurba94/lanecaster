@@ -143,7 +143,7 @@ class Reward extends Scene {
 
 class Table extends Scene {
   constructor(g, run, option) { super(g); this.run = run; this.o = option; }
-  get laneY() { return 110; }
+  get laneY() { return 110 + Math.max(0, (this.g.H - 660) / 3); }
   enter() {
     this.d = this.run.duel(this.o);
     this.sel = null;
@@ -217,6 +217,7 @@ class Table extends Scene {
       const hurt = Math.max(0, f.hit - f.block);
       text(c, `${f.dmg} dmg  ${f.block} block`, x + 60, this.laneY + 219, { size: 10, color: hurt ? "#fca5a5" : "#86efac", weight: 700 });
     }
+    text(c, this.sel != null ? "Now tap a lane" : "Tap a card to pick it up", g.W / 2, g.H - 200, { size: 12, color: g.theme.muted });
     bar(c, 12, g.H - 58, 208, 12, h.hp / h.max, "#ef4444");
     text(c, `${Math.max(0, h.hp)}/${h.max}${h.burn ? `   Burn ${h.burn}` : ""}`, 116, g.H - 34, { size: 12 });
     text(c, `Energy ${d.energy}`, 116, g.H - 16, { size: 13, weight: 800, color: g.theme.accent });
